@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>倒计时</title>
+		<style>
+			body{
+				
+			}
+			section{
+				width: 600px;
+				height: 400px;
+				border: 1px solid black;
+				border-radius: 50%;
+				text-align: center;
+				margin: 0 auto;
+			}
+			span{
+				width: 50px;
+				height: 50px;
+				border: 1px solid yellow;
+				display: inline-block;
+				margin-top: 100px;
+				font-size: 40px;
+				left: 100px;
+				position: relative;
+			}
+			button{
+				height: 50px;
+				width: 200px;
+				position: relative;
+				top:150px;
+				left: -170px;
+			}
+			div{
+				background-image: url(zhuzhu.jpg);
+				width: 1000px;
+				height: 800px;
+				
+				display: none;
+				margin: -10px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<span>01</span>
+			<span>时</span>
+			<span>05</span>
+			<span>分</span>
+			<span>15</span>
+			<span>秒</span>
+			<button>倒计时</button>
+		</section>
+		<div>
+		
+		</div>
+	</body>
+</html>
+<script>
+var section = document.querySelector("section");
+var div = document.querySelector("div");
+	var button = document.querySelector("button");
+	var span = document.querySelectorAll("span");
+	button.addEventListener("click",function(){
+		var a = setInterval(function(){
+			span[4].innerHTML --;
+			if(span[4].innerHTML == -1){
+				span[2].innerHTML --;
+				span[4].innerHTML = 59;
+		}
+			if(span[2].innerHTML == -1 ){
+					span[0].innerHTML = 0;
+					span[2].innerHTML = 59;
+					
+				}
+			if(span[0].innerHTML == 0 && span[2].innerHTML == 0 && span[4].innerHTML == 0){
+						clearInterval(a);
+						section.style.display = "none";
+						div.style.display = "block";
+					}
+			
+		},10);
+	})
+</script>
